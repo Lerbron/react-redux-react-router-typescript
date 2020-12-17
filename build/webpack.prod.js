@@ -4,7 +4,7 @@ const {
 } = require('webpack-merge')
 const common = require('./webpack.common.js')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const glob = require("glob");
+const glob = require("glob-all");
 const PurgeCSSPlugin = require('purgecss-webpack-plugin')
 const {
   resolve
@@ -36,10 +36,12 @@ module.exports = merge(common, {
       ignoreOrder: false,
     }),
     new PurgeCSSPlugin({
-      paths: glob.sync(`${resolve(__dirname, "../src")}/**/*.{tsx,scss,less,css}`, {
+      paths: glob.sync([
+        `${resolve(__dirname, "../src")}/**/*.{tsx,scss,less,css}`,
+        `${resolve(__dirname, "../public/*.html")}`,
+      ], {
         nodir: true
       }),
-      whitelist: ["html", "body"]
     }),
     new webpack.BannerPlugin({
       raw: true,

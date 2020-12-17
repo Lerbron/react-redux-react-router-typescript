@@ -4,6 +4,9 @@ import { RouteComponentProps } from 'react-router-dom'
 import { testNum } from '@/actions/testActions'
 import {IState} from '@/reducers/index'
 import { IDispatch } from '@/typings/index'
+
+import imgUrl from '@/assets/icons/img.jpg'
+
 interface IProps extends RouteComponentProps{
   num: number
   testNum(): void
@@ -28,6 +31,7 @@ const Home= (props: IProps) => {
     <div onClick={goAbout}>Home page</div>
     {num}
     <div onClick={add}>add</div>
+    <img src={imgUrl} />
   </div>
 }
 

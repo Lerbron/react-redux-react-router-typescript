@@ -8,7 +8,6 @@ const {
   CleanWebpackPlugin
 } = require('clean-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 const WebpackBar = require("webpackbar");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const os = require('os');
@@ -31,7 +30,7 @@ module.exports = {
   entry: resolve(__dirname, "../src/index.tsx"),
   output: {
     filename: 'js/[name].[hash:8].js',
-    chunkFilename: 'js/[name].[hash:6].js',
+    chunkFilename: 'js/[name].[hash:8].js',
     path: resolve(__dirname, '../dist'),
     publicPath: "/",
   },
@@ -148,16 +147,12 @@ module.exports = {
         minifyURLs: true
       }
     }),
-    new MiniCssExtractPlugin({
-      filename: 'static/[name].[hash:6].css',
-      chunkFilename: 'static/[id].[hash:6].css',
-    }),
-    new CopyPlugin({
-      patterns: [{
-        from: resolve(__dirname, "../public"),
-        to: resolve(__dirname, "../dist")
-      }],
-    }),
+    // new CopyPlugin({
+    //   patterns: [{
+    //     from: resolve(__dirname, "../public"),
+    //     to: resolve(__dirname, "../dist")
+    //   }],
+    // }),
     new ForkTsCheckerWebpackPlugin({
       typescript: {
         configFile: resolve(__dirname, '../tsconfig.json'),
@@ -168,6 +163,5 @@ module.exports = {
       color: "#fa8c16",
       reporter: new Reporter()
     }),
-    new HardSourceWebpackPlugin(),
   ]
 }

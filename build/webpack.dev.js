@@ -2,6 +2,8 @@ const {
   merge
 } = require('webpack-merge');
 const webpack = require('webpack');
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
+
 const {
   resolve
 } = require("path");
@@ -26,5 +28,8 @@ module.exports = merge(common, {
     }, // 代理配置
     // contentBase: resolve(__dirname, '../public')
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new HardSourceWebpackPlugin(),
+  ],
 });
