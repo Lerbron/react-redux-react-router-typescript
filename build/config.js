@@ -1,4 +1,4 @@
-const SERVER_PORT = 3000
+const SERVER_PORT = 3003
 const SERVER_HOST = '127.0.0.1'
 const PROJECT_NAME = "React+Typescript"
 const isDev = process.env.NODE_ENV !== 'production'

@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from "react-redux";
 import { RouteComponentProps } from 'react-router-dom'
 import { testNum } from '@/actions/testActions'
 import {IState} from '@/reducers/index'
 import { IDispatch } from '@/typings/index'
-
+import checkNum from '@/utils/test.tsx'
 import imgUrl from '@/assets/icons/img.jpg'
 
 interface IProps extends RouteComponentProps{
@@ -27,6 +27,12 @@ const Home= (props: IProps) => {
   const add=() => {
     testNum()
   }
+
+  useEffect(() => {
+    let flag= checkNum(8)
+    console.log("flag-->", flag)
+  }, [])
+
   return <div>
     <div onClick={goAbout}>Home page</div>
     {num}

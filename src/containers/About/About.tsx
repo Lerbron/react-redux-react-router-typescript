@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect} from 'react'
 import { RouteComponentProps } from 'react-router-dom'
+import checkNum from '@/utils/test.tsx'
 
 
 import './index.scss'
@@ -20,6 +21,11 @@ export default (props: IProps) => {
   const goHome= () => {
     history.push('/')
   }
+
+  useEffect(() => {
+    let flag= checkNum(12)
+    console.log("flag-->", flag)
+  }, [])
 
   console.log('id-->', match)
 

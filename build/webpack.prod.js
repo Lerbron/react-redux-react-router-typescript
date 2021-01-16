@@ -35,17 +35,17 @@ module.exports = merge(common, {
       chunkFilename: 'css/[name].[contenthash:8].css',
       ignoreOrder: false,
     }),
-    new PurgeCSSPlugin({
-      paths: glob.sync([
-        `${resolve(__dirname, "../src")}/**/*.{tsx,scss,less,css}`,
-        `${resolve(__dirname, "../public/*.html")}`,
-      ], {
-        nodir: true
-      }),
-    }),
-    new webpack.BannerPlugin({
-      raw: true,
-      banner: '/** @preserve Powered by chenwl */',
-    }),
+    // new PurgeCSSPlugin({
+    //   paths: glob.sync([
+    //     `${resolve(__dirname, "../src")}/**/*.{tsx,scss,less,css}`,
+    //     `${resolve(__dirname, "../public/*.html")}`,
+    //   ], {
+    //     nodir: true
+    //   }),
+    // }),
+    // new webpack.BannerPlugin({
+    //   raw: true,
+    //   banner: '/** @preserve Powered by chenwl */',
+    // }),
   ]
 })
