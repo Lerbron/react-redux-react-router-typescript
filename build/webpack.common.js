@@ -1,7 +1,7 @@
 const {
   resolve
 } = require('path')
-const config = require("./config")
+const config = require("./baseConfig")
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {
   CleanWebpackPlugin

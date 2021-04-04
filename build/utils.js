@@ -2,7 +2,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const {
   isDev
-} = require('./config')
+} = require('./baseConfig')
 
 exports.getCssLoaders = (importLoaders) => [
   isDev ? 'style-loader' : MiniCssExtractPlugin.loader,

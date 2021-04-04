@@ -9,7 +9,7 @@ const {
 } = require("path");
 const common = require('./webpack.common.js');
 const proxySetting = require('./proxy');
-const config = require('./config');
+const config = require('./baseConfig');
 
 module.exports = merge(common, {
   target: 'web',
