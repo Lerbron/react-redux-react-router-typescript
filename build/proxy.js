@@ -1,15 +1,7 @@
 const proxySetting = {
-  '/api/': {
-      target: 'http://localhost:3001',
+  '/toutiao/': {
+      target: 'http://v.juhe.cn/',
       changeOrigin: true,
-  },
-  //接口代理2
-  '/api-2/': {
-      target: 'http://localhost:3002',
-      changeOrigin: true,
-      pathRewrite: {
-          '^/api-2': '',
-      },
   },
 }
 

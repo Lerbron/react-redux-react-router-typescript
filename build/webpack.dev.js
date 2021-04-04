@@ -2,7 +2,7 @@ const {
   merge
 } = require('webpack-merge');
 const webpack = require('webpack');
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
+// const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 
 const {
   resolve
@@ -12,6 +12,7 @@ const proxySetting = require('./proxy');
 const config = require('./config');
 
 module.exports = merge(common, {
+  target: 'web',
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
@@ -30,6 +31,6 @@ module.exports = merge(common, {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new HardSourceWebpackPlugin(),
+    // new HardSourceWebpackPlugin(),
   ],
 });

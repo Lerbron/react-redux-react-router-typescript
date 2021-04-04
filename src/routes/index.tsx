@@ -1,32 +1,16 @@
 import React from 'react'
-import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom'
-import Cookies from 'js-cookie';
-
+import { BrowserRouter } from 'react-router-dom'
+import CoreLayout from '@/components/CoreLayout/CoreLayout'
 import {routes} from './routes'
 
-function checkIsLogin():boolean {
-  return Cookies.get('token') ? true : false
+const AppRoutes = () => {
+
+  return (
+    <BrowserRouter>
+      <CoreLayout routes={routes} />
+    </BrowserRouter>
+
+  )
 }
-
-const AppRoutes = () => 
-  <BrowserRouter>
-    <Switch>
-      {
-        routes.map(route => {
-          const {path, exact, auth, component: Component} = route
-          return <Route key={path + ''} exact={!!exact} path={path} render={(props: any) => {
-            if (!auth) {
-              return <Component {...props} />
-            }
-
-            if (checkIsLogin()) {
-              return <Component {...props} />
-            }
-            return (<Redirect to='/login' />)
-          }}/>
-        })
-      }
-    </Switch>
-  </BrowserRouter>
 
 export default AppRoutes

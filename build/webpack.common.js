@@ -2,14 +2,12 @@ const {
   resolve
 } = require('path')
 const config = require("./config")
-const CopyPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {
   CleanWebpackPlugin
 } = require('clean-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const WebpackBar = require("webpackbar");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const os = require('os');
 var threadPool = os.cpus().length - 1;
 

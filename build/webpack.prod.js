@@ -4,8 +4,11 @@ const {
 } = require('webpack-merge')
 const common = require('./webpack.common.js')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CompressionPlugin = require('compression-webpack-plugin');
 const glob = require("glob-all");
 const PurgeCSSPlugin = require('purgecss-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
+
 const {
   resolve
 } = require("path");
@@ -14,7 +17,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = merge(common, {
   mode: 'production',
-  devtool: 'none',
+  // devtool: 'none',
   optimization: {
     minimize: true,
     minimizer: [
@@ -35,17 +38,24 @@ module.exports = merge(common, {
       chunkFilename: 'css/[name].[contenthash:8].css',
       ignoreOrder: false,
     }),
-    // new PurgeCSSPlugin({
-    //   paths: glob.sync([
-    //     `${resolve(__dirname, "../src")}/**/*.{tsx,scss,less,css}`,
-    //     `${resolve(__dirname, "../public/*.html")}`,
-    //   ], {
-    //     nodir: true
-    //   }),
-    // }),
-    // new webpack.BannerPlugin({
-    //   raw: true,
-    //   banner: '/** @preserve Powered by chenwl */',
-    // }),
+    new CompressionPlugin({
+      test: /\.js(\?.*)?$/i,
+      algorithm: 'gzip',
+      compressionOptions: { level: 5 },
+      exclude:'config.js',
+    }),
+    new PurgeCSSPlugin({
+      paths: glob.sync([
+        `${resolve(__dirname, "../src")}/**/*.{tsx,scss,less,css}`,
+        `${resolve(__dirname, "../public/*.html")}`,
+      ], {
+        nodir: true
+      }),
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: resolve(__dirname, './../favicon.ico'), to: resolve(__dirname , './../dist/favicon.ico') },
+      ],
+    }),
   ]
 })
