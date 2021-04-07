@@ -44,14 +44,15 @@ module.exports = merge(common, {
       compressionOptions: { level: 5 },
       exclude:'config.js',
     }),
-    new PurgeCSSPlugin({
-      paths: glob.sync([
-        `${resolve(__dirname, "../src")}/**/*.{tsx,scss,less,css}`,
-        `${resolve(__dirname, "../public/*.html")}`,
-      ], {
-        nodir: true
-      }),
-    }),
+    // new PurgeCSSPlugin({
+    //   paths: glob.sync([
+    //     `${resolve(__dirname, "../src")}/**/*`,
+    //     `${resolve(__dirname, "../src")}/**/**/*`,
+    //     `${resolve(__dirname, "../public/*.html")}`,
+    //   ], {
+    //     nodir: true
+    //   }),
+    // }),
     new CopyPlugin({
       patterns: [
         { from: resolve(__dirname, './../favicon.ico'), to: resolve(__dirname , './../dist/favicon.ico') },

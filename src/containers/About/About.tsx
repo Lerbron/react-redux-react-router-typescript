@@ -29,7 +29,7 @@ export default (props: IProps) => {
 
   console.log('id-->', match)
 
-  return <div>
+  return <div className='about-page'>
     <div onClick={goHome}>About page <span>{match?.params?.id}</span></div>
   </div>
 }
