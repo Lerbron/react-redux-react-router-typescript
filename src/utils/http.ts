@@ -69,12 +69,16 @@ http.interceptors.response.use( (response: IResponseConfig) => {
   }
   return response;
 }, err => {
-  let errResponse = err.response
+  let errResponse = err.response||{}
 
-  console.log('errObj:', errResponse)
+  console.log('errObj:', err)
+
+  if (err?.message == 'The operation is too frequent~') {
+    return Promise.reject('')
+  }
 
   
-  message.error(errResponse.data && errResponse.data.error && errResponse.data.error.message || errResponse.statusText || 'Something went wrong, please try again later');
+  message.error(errResponse?.data && errResponse?.data?.error && errResponse?.data?.error?.message || errResponse?.statusText || 'Something went wrong, please try again later');
   return Promise.reject(errResponse);
 
 })
