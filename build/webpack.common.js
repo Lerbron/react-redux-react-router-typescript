@@ -101,7 +101,7 @@ module.exports = {
           minChunks: 2
         },
         vendor: {
-          test: /[\\/]node_modules[\\/](react|react-dom|redux|react-router-dom|redux-thunk|react-loadable)[\\/]/,
+          test: /[\\/]node_modules[\\/](react|react-dom|redux|react-router-dom|redux-thunk|react-loadable|antd)[\\/]/,
           name: 'vendor',
           chunks: 'all',
         }
