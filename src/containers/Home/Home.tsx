@@ -8,6 +8,7 @@ import checkNum from '@/utils/test'
 import imgUrl from '@/assets/icons/img.jpg'
 import { fetchConferenceList } from '@/actions/testActions'
 import { INewsItem } from '@/reducers/test'
+import PageHoc from '@/Hoc/PageHoc'
 
 import { Button } from 'antd'
 
@@ -58,7 +59,8 @@ const Home: React.FC<IProps>= (props: IProps) => {
     console.log("flag-->", flag)
 
     let params: IListParams= {
-      key: '294b924ec8773fee518de6c90d08250d'
+      key: '294b924ec8773fee518de6c90d08250d',
+      page_size: 50
     }
 
     fetchConferenceList(params)
@@ -96,4 +98,4 @@ const mapDispatchToProps = (dispatch: IDispatch, ownProps:IProps ) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(PageHoc(Home))

@@ -20,7 +20,7 @@ interface IPendingReq {
   [prop: string]: (params: any) => void
 }
 
-const pendingReq: IPendingReq = {};
+export const pendingReq: IPendingReq = {};
 
 
 const http = axios.create({
@@ -73,7 +73,7 @@ http.interceptors.response.use( (response: IResponseConfig) => {
 
   console.log('errObj:', err)
 
-  if (err?.message == 'The operation is too frequent~') {
+  if (err?.message == 'The operation is too frequent~' || err?.message == 'page unmount') {
     return Promise.reject('')
   }
 
