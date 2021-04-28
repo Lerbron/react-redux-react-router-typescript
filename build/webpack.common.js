@@ -1,6 +1,7 @@
 const {
   resolve
 } = require('path')
+const webpack = require('webpack')
 const config = require("./baseConfig")
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {
@@ -75,8 +76,8 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 10 * 1024,
-            name: '[name].[contenthash:8].[ext]',
-            outputPath: 'assets/images',
+            name: "static/img/[name].[ext]",
+            esModule: false
           },
         }, ],
       },
@@ -85,8 +86,8 @@ module.exports = {
         use: [{
           loader: 'file-loader',
           options: {
-            name: '[name].[contenthash:8].[ext]',
-            outputPath: 'assets/fonts',
+            name: "static/font/[name].[ext]",
+            esModule: false
           },
         }, ],
       },
@@ -161,5 +162,6 @@ module.exports = {
       color: "#fa8c16",
       reporter: new Reporter()
     }),
+    new webpack.IgnorePlugin(/\.\/locale/, /moment/)
   ]
 }

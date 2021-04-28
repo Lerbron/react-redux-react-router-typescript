@@ -73,6 +73,7 @@ const Home: React.FC<IProps>= (props: IProps) => {
     {num}
     <div onClick={add}>add Number</div>
     <img src={imgUrl} />
+    <img src={require('@/assets/icons/img.jpg')} />
     <div className='box'></div>
     <Button type='primary'>Submit</Button>
     <ul>
