@@ -1,7 +1,6 @@
 import * as actionTypes from '@/actions/actionTypes'
 import http from '@/utils/http'
 import API from '@/api'
-import { IDispatch } from '@/typings/index'
 
 import { IListParams } from '@/containers/Home/Home'
 import { INewsItem } from '@/reducers/test'
