@@ -5,7 +5,6 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Cookies from 'js-cookie';
 
 import { IState } from '@/reducers/index'
-import { IDispatch } from '@/typings/index'
 import { IRoute } from '@/routes/routes'
 
 

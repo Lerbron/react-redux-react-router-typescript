@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { RouteComponentProps } from 'react-router-dom'
 import { testNum } from '@/actions/testActions'
 import {IState} from '@/reducers/index'
-import { IDispatch } from '@/typings/index'
 import checkNum from '@/utils/test'
 import imgUrl from '@/assets/icons/img.jpg'
 import { fetchConferenceList } from '@/actions/testActions'
