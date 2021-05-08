@@ -3,5 +3,5 @@ declare interface Window{
 }
 
 declare interface IDispatch{
-  (args: any): {}
+  (args: any): void
 }
