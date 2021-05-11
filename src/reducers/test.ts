@@ -23,17 +23,12 @@ const initState: IState = {
 	newsList: []
 };
 
-interface IAction{
-	type: string
-	[prop: string]: any
-}
-
-export default function test(state = initState, action: IAction) {
+export default function test(state = initState, action: IAction): IState {
 	switch (action.type) {
 		case actionTypes.TEST_NUM :
 			return Object.assign({}, state, {num: state.num + 1});
 		case actionTypes.GET_NEWS_LIST :
-			return Object.assign({}, state, {newsList: action.listInfo});
+			return Object.assign({}, state, {newsList: action.payload});
 		default :
 			return state;
 	}

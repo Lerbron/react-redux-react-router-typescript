@@ -6,11 +6,7 @@ import { IListParams } from '@/containers/Home/Home'
 import { INewsItem } from '@/reducers/test'
 
 
-interface ITest {
-  type: string
-}
-
-export function testNum(): ITest{
+export function testNum(): IAction{
   return{
     type: actionTypes.TEST_NUM,
   }
@@ -19,10 +15,10 @@ export function testNum(): ITest{
 
 // 获取news列表
 
-function getNewsList(listInfo: INewsItem[]) {
+function getNewsList(listInfo: INewsItem[]): IAction {
   return {
     type: actionTypes.GET_NEWS_LIST,
-    listInfo
+    payload: listInfo
   }
 }
 
